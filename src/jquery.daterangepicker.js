@@ -1330,7 +1330,12 @@
 					.add(moment(opt[name + 'Time']).format('HH'), 'h')
 					.add(moment(opt[name + 'Time']).format('mm'), 'm').valueOf()
 				);
-		}
+			if(name == 'end' && opt.start > opt.end){
+				    var temp = opt.end;
+				    opt.end = opt.start;
+				    opt.start = temp;
+			    }
+			}
 
 		function swapTime () {
 			renderTime('time1', opt.start);
